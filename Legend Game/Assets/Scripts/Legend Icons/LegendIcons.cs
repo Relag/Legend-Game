@@ -8,12 +8,12 @@ public abstract class LegendIcons : MonoBehaviour
     protected Sprite iconSprite;
     public Vector2 location;
 
-    protected int military { get; } 
-    protected int religion { get; }
-    protected int commerce { get; }
-    protected int food { get; }
-    protected int material { get; }
-    protected int knowledge { get; }
+    public int military { get; set; } 
+    public int religion { get; }
+    public int commerce { get; }
+    public int food { get; }
+    public int material { get; }
+    public int knowledge { get; }
 
    
 }
