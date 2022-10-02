@@ -2,17 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LegendIcons : MonoBehaviour
+public abstract class LegendIcons : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField]
+    protected Sprite iconSprite;
+    public Vector2 location;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    protected int military { get; } 
+    protected int religion { get; }
+    protected int commerce { get; }
+    protected int food { get; }
+    protected int material { get; }
+    protected int knowledge { get; }
+
+   
 }
