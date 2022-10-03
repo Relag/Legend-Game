@@ -16,7 +16,6 @@ public class TownManager : MonoBehaviour
     int knowledgeUsed;
     int materialUsed;
 
-    List<LegendIcons> legendIcondList;
     
     // Start is called before the first frame update
     void Start()

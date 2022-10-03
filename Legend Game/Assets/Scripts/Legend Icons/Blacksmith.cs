@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Blackasmith : MonoBehaviour
+public class Blacksmith : LegendIcons
 {
     // Start is called before the first frame update
     void Start()
