@@ -11,9 +11,18 @@ public abstract class LegendIcons : MonoBehaviour
     public int military { get; set; } 
     public int religion { get; }
     public int commerce { get; }
-    public int food { get; }
-    public int material { get; }
-    public int knowledge { get; }
+    public int foodGiven { get; }
+    public int materialGiven { get; }
+    public int knowledgeGiven { get; }
+    public int foodRequired { get; }
+    public int materialRequired { get; }
+    public int knowledgeRequired { get; }
 
-   
+    public bool unlocked = false;
+
+   public void unlock() {
+        unlocked = true;
+        //inform UI manager that icon is unlocked and should be shown.
+    }
+
 }
