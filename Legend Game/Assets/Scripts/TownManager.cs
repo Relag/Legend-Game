@@ -12,6 +12,9 @@ public class TownManager : MonoBehaviour
     int totalReligion;
     int totalMilitary;
     int totalCommerce;
+    int foodUsed;
+    int knowledgeUsed;
+    int materialUsed;
 
     List<LegendIcons> legendIcondList;
     
@@ -35,4 +38,8 @@ public class TownManager : MonoBehaviour
         totalMaterial += newLegendIcon.material;
         totalReligion += newLegendIcon.religion;
     }
+
+    public int foodAvailable() { return totalFood - foodUsed; }
+    public int materialAvailable() { return totalMaterial - materialUsed; }
+    public int knowledgeAvailable() { return totalKnowledge - knowledgeUsed; }
 }
