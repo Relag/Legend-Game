@@ -10,8 +10,6 @@ public class DialogueManager : MonoBehaviour
     public LegendTemplate getLegend() {
         int index = Random.Range(0, legendTemplates.Count);
         return legendTemplates[index];
-
     }
-
-
+    
 }
