@@ -31,11 +31,11 @@ public class TownManager : MonoBehaviour
     }
 
     public void UpdateStats(LegendIcons newLegendIcon) {
-        totalCommerce += newLegendIcon.military;
-        totalFood += newLegendIcon.food;
-        totalKnowledge += newLegendIcon.knowledge;
+        totalCommerce += newLegendIcon.commerce;
+        totalFood += newLegendIcon.foodGiven;
+        totalKnowledge += newLegendIcon.knowledgeGiven;
         totalMilitary += newLegendIcon.military;
-        totalMaterial += newLegendIcon.material;
+        totalMaterial += newLegendIcon.materialGiven;
         totalReligion += newLegendIcon.religion;
     }
 
