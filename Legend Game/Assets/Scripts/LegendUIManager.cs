@@ -17,6 +17,8 @@ public class LegendUIManager : MonoBehaviour
     [SerializeField]
     private GameObject choicePanel;
 
+    private int paragraphNumber;
+
     LegendTemplate currentLegend;
 
     private void Awake() {
@@ -31,9 +33,7 @@ public class LegendUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        currentLegend = DialogueManager.dialogueManager.getLegend();
-        titleText.text = currentLegend.title;
-        storyText.text = currentLegend.paragraphList[0];
+        StoryTime();
         
     }
 
@@ -44,12 +44,27 @@ public class LegendUIManager : MonoBehaviour
     }
 
     public void StoryTime() {
-        DialogueManager.dialogueManager.getLegend();
-
-
+        paragraphNumber = 0;
+        currentLegend = DialogueManager.dialogueManager.getLegend();
+        titleText.text = currentLegend.title;
+        storyText.text = currentLegend.paragraphList[paragraphNumber];
     }
 
     public void GenerateButtons() {
 
+    }
+
+    public void NextParagraph() {
+        if (currentLegend.paragraphList[paragraphNumber + 1] != null) {
+            paragraphNumber++;
+            storyText.text = currentLegend.paragraphList[paragraphNumber];
+        }
+    }
+
+    public void PreviousParagraph() {
+        if (paragraphNumber > 0) {
+            paragraphNumber--;
+            storyText.text = currentLegend.paragraphList[paragraphNumber];
+        }
     }
 }
