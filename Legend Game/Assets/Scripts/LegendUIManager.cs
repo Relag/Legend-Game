@@ -11,9 +11,9 @@ public class LegendUIManager : MonoBehaviour
     public static LegendUIManager legendUIManager;
 
     [SerializeField]
-    private TextMeshPro titleText;
+    private TextMeshProUGUI titleText;
     [SerializeField]
-    private TextMeshPro storyText;
+    private TextMeshProUGUI storyText;
     [SerializeField]
     private GameObject choicePanel;
 
@@ -32,6 +32,9 @@ public class LegendUIManager : MonoBehaviour
     void Start()
     {
         currentLegend = DialogueManager.dialogueManager.getLegend();
+        titleText.text = currentLegend.title;
+        storyText.text = currentLegend.paragraphList[0];
+        
     }
 
     // Update is called once per frame
@@ -43,6 +46,10 @@ public class LegendUIManager : MonoBehaviour
     public void StoryTime() {
         DialogueManager.dialogueManager.getLegend();
 
+
+    }
+
+    public void GenerateButtons() {
 
     }
 }

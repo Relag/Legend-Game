@@ -5,9 +5,10 @@ using UnityEngine;
 public abstract class LegendTemplate
 {
     //Provide paragraphs and answers
-
+    public string title;
     public List<string> paragraphList = new List<string>();
     public List<Answer> answerList = new List<Answer>();
+
     //Call when player clicks an answer
     public Answer giveAnswer(string answer) {
         foreach (Answer answers in answerList) {

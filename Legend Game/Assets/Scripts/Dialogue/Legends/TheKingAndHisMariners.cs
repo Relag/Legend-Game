@@ -8,7 +8,9 @@ public class TheKingAndHisMariners : LegendTemplate
 {
     public TheKingAndHisMariners() {
         //Debug.Log(paragraphList.Count());
-        Debug.Log("howdy");
+        
+        title = "The King and His Mariners";
+        Debug.Log(title);
         paragraphList.Add("Long ago there was a King. He was a kind man stalwart and true, but he was not content to sit on his throne. Instead, he decided to be a leader of his people and set out on a naval expedition.");
         Debug.Log(paragraphList[0]);
         
