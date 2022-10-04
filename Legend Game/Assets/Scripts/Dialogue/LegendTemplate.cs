@@ -22,7 +22,7 @@ public abstract class LegendTemplate
 
 public class Answer
 {
-    string answer;
+    public string answer { get; set; }
     List<string> answerList;
     int commerce;
     int military;

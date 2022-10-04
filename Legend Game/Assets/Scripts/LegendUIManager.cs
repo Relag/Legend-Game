@@ -16,6 +16,10 @@ public class LegendUIManager : MonoBehaviour
     private TextMeshProUGUI storyText;
     [SerializeField]
     private GameObject choicePanel;
+    [SerializeField]
+    private Button button;
+
+    private List<Button> buttonList;
 
     private int paragraphNumber;
 
@@ -48,6 +52,13 @@ public class LegendUIManager : MonoBehaviour
         currentLegend = DialogueManager.dialogueManager.getLegend();
         titleText.text = currentLegend.title;
         storyText.text = currentLegend.paragraphList[paragraphNumber];
+
+        for (int i = 0; i < currentLegend.answerList.Count; i++) {
+            Button loop = Instantiate(button);
+            loop.transform.parent = choicePanel.transform;
+            TextMeshProUGUI text = loop.GetComponentInChildren<TextMeshProUGUI>();
+            text.text = currentLegend.answerList[i].answer;
+        }
     }
 
     public void GenerateButtons() {
