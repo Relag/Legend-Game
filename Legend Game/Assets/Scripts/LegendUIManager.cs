@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
+
 public class LegendUIManager : MonoBehaviour
 {
 
@@ -15,6 +16,8 @@ public class LegendUIManager : MonoBehaviour
     private TextMeshPro storyText;
     [SerializeField]
     private GameObject choicePanel;
+
+    LegendTemplate currentLegend;
 
     private void Awake() {
         if (legendUIManager != null) {
@@ -28,7 +31,7 @@ public class LegendUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        currentLegend = DialogueManager.dialogueManager.getLegend();
     }
 
     // Update is called once per frame

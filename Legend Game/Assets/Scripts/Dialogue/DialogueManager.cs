@@ -6,19 +6,27 @@ class DialogueManager : MonoBehaviour
 {
     public static DialogueManager dialogueManager;
 
+    [SerializeField]
+    private List<LegendTemplate> legendTemplates = new List<LegendTemplate>();
+
     private void Awake() {
         if (dialogueManager != null) {
             Destroy(gameObject);
-        } else {
+        }
+        else {
             dialogueManager = this;
         }
-
+        
     }
 
-    [SerializeField]
-    private List<LegendTemplate> legendTemplates;
+    public void Start() {
+        
+    }
+
+
 
     public LegendTemplate getLegend() {
+        legendTemplates.Add(new TheKingAndHisMariners());
         int index = Random.Range(0, legendTemplates.Count);
         return legendTemplates[index];
     }
