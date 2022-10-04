@@ -2,8 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DialogueManager : MonoBehaviour
+class DialogueManager : MonoBehaviour
 {
+    public static DialogueManager dialogueManager;
+
+    private void Awake() {
+        if (dialogueManager != null) {
+            Destroy(gameObject);
+        } else {
+            dialogueManager = this;
+        }
+
+    }
+
     [SerializeField]
     private List<LegendTemplate> legendTemplates;
 
