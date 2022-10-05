@@ -5,14 +5,7 @@ using UnityEngine;
 public class Blacksmith : LegendIcons
 {
     // Start is called before the first frame update
-    void Start()
-    {
+    public Blacksmith () {
         name = "Blacksmith";
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -91,9 +91,12 @@ public class LegendUIManager : MonoBehaviour
                 if (answer.theEnd) {
                     choicePanel.SetActive(false);
                     endPanel.SetActive(true);
+                    statText.text = answer.military + " + Military\n" + answer.commerce + " + Commerce\n" + answer.religion + " + Religion\n"; 
+                    if (answer.iconUnlocked is LegendIcons) {
+                        statText.text += answer.iconUnlocked.name + " Unlocked";
+                    }
                 }
                 NextParagraph();
-
             }
         }
     }
