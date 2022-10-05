@@ -17,6 +17,7 @@ public abstract class LegendIcons : MonoBehaviour
     public int foodRequired { get; }
     public int materialRequired { get; }
     public int knowledgeRequired { get; }
+    public string name;
 
     public bool unlocked = false;
 

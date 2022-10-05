@@ -24,10 +24,11 @@ public class Answer
 {
     public string answer { get; set; }
     public List<string> paragraphs;
-    int commerce;
-    int military;
-    int religion;
-    bool theEnd;
+    public int commerce;
+    public int military;
+    public int religion;
+    public bool theEnd;
+    public LegendIcons iconUnlocked;
 
     public Answer(string answer, List<string> answerList, int commerce, int military, int religion, LegendIcons iconUnlocked = null, bool theEnd = true) {
         this.answer = answer;
@@ -36,6 +37,7 @@ public class Answer
         this.military = military;
         this.religion = religion;
         this.theEnd = theEnd;
+        this.iconUnlocked = iconUnlocked;
     }
 }
 

@@ -17,7 +17,15 @@ public class LegendUIManager : MonoBehaviour
     [SerializeField]
     private GameObject choicePanel;
     [SerializeField]
+    private GameObject endPanel;
+    [SerializeField]
     private Button button;
+
+    [SerializeField]
+    private Button endButton;
+
+    [SerializeField]
+    private TextMeshProUGUI statText;
 
     private List<Button> buttonList;
 
@@ -48,12 +56,15 @@ public class LegendUIManager : MonoBehaviour
     }
 
     public void StoryTime() {
+        endPanel.SetActive(false);
+        choicePanel.SetActive(true);
+
         paragraphNumber = 0;
         currentLegend = DialogueManager.dialogueManager.getLegend();
         titleText.text = currentLegend.title;
         storyText.text = currentLegend.paragraphList[paragraphNumber];
 
-    
+        choicePanel.GetComponent<VerticalLayoutGroup>().enabled = true;
 
         GenerateButtons();
     }
@@ -65,6 +76,7 @@ public class LegendUIManager : MonoBehaviour
             TextMeshProUGUI text = loop.GetComponentInChildren<TextMeshProUGUI>();
             text.text = currentLegend.answerList[i].answer;
             loop.onClick.AddListener(Answer);
+           
         }
     }
 
@@ -76,6 +88,12 @@ public class LegendUIManager : MonoBehaviour
             if (Equals(text.text, answer.answer)) {
                 for (int i = 0; i < answer.paragraphs.Count; i++)
                     currentLegend.paragraphList.Add(answer.paragraphs[i]);
+                if (answer.theEnd) {
+                    choicePanel.SetActive(false);
+                    endPanel.SetActive(true);
+                }
+                NextParagraph();
+
             }
         }
     }

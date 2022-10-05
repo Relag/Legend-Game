@@ -33,7 +33,9 @@ public class TheKingAndHisMariners : LegendTemplate
         thirdAnswer.Add("The King knelt down and led his men in a group prayer. Each man gave themselves willingly to their God, and when the prayer was completed the clouds parted and the sun beckoned the men to follow. " +
             "The men found a rowboat, washed up on the shore and miraculously intact. They sent their finest navigator on this boat to find their Kingdom and return with aid. The King’s faith had yielded great results, and he soon returned home.");
 
-        answerList.Add(new Answer("Search for Guidance", thirdAnswer, 0, 0, 15));
+        answerList.Add(new Answer("Search for Guidance", thirdAnswer, 0, 0, 15, new Blacksmith()));
+
+        
     }
 
 }
