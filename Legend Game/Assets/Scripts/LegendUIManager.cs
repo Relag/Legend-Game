@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-
+using System;
 
 public class LegendUIManager : MonoBehaviour
 {
@@ -53,18 +53,31 @@ public class LegendUIManager : MonoBehaviour
         titleText.text = currentLegend.title;
         storyText.text = currentLegend.paragraphList[paragraphNumber];
 
-        Debug.Log(currentLegend.paragraphList.Count);
+    
 
+        GenerateButtons();
+    }
+
+    public void GenerateButtons() {
         for (int i = 0; i < currentLegend.answerList.Count; i++) {
             Button loop = Instantiate(button);
             loop.transform.parent = choicePanel.transform;
             TextMeshProUGUI text = loop.GetComponentInChildren<TextMeshProUGUI>();
             text.text = currentLegend.answerList[i].answer;
+            loop.onClick.AddListener(Answer);
         }
     }
 
-    public void GenerateButtons() {
-
+    public void Answer() {
+        GameObject thisButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
+        TextMeshProUGUI text = thisButton.GetComponentInChildren<TextMeshProUGUI>();
+        Debug.Log(text.text);
+        foreach (Answer answer in currentLegend.answerList) {
+            if (Equals(text.text, answer.answer)) {
+                for (int i = 0; i < answer.paragraphs.Count; i++)
+                    currentLegend.paragraphList.Add(answer.paragraphs[i]);
+            }
+        }
     }
 
     public void NextParagraph() {

@@ -23,7 +23,7 @@ public abstract class LegendTemplate
 public class Answer
 {
     public string answer { get; set; }
-    List<string> answerList;
+    public List<string> paragraphs;
     int commerce;
     int military;
     int religion;
@@ -31,7 +31,7 @@ public class Answer
 
     public Answer(string answer, List<string> answerList, int commerce, int military, int religion, LegendIcons iconUnlocked = null, bool theEnd = true) {
         this.answer = answer;
-        this.answerList = answerList;
+        this.paragraphs = answerList;
         this.commerce = commerce;
         this.military = military;
         this.religion = religion;
