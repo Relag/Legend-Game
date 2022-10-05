@@ -53,6 +53,8 @@ public class LegendUIManager : MonoBehaviour
         titleText.text = currentLegend.title;
         storyText.text = currentLegend.paragraphList[paragraphNumber];
 
+        Debug.Log(currentLegend.paragraphList.Count);
+
         for (int i = 0; i < currentLegend.answerList.Count; i++) {
             Button loop = Instantiate(button);
             loop.transform.parent = choicePanel.transform;
@@ -66,7 +68,7 @@ public class LegendUIManager : MonoBehaviour
     }
 
     public void NextParagraph() {
-        if (currentLegend.paragraphList[paragraphNumber + 1] != null) {
+        if (paragraphNumber <= currentLegend.paragraphList.Count - 2 ) {
             paragraphNumber++;
             storyText.text = currentLegend.paragraphList[paragraphNumber];
         }
