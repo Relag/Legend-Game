@@ -3,21 +3,51 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SideTabUI {
+public class SideTabUI : MonoBehaviour {
     [SerializeField]
-    private Button townOpenButton;
+    private GameObject townOpenButton;
     [SerializeField]
-    private Button legendOpenButton;
+    private GameObject legendOpenButton;
     [SerializeField]
-    private Button townClosedButton;
+    private GameObject townClosedButton;
     [SerializeField]
-    private Button legendClosedButton;
+    private GameObject legendClosedButton;
 
     [SerializeField]
-    GameObject sidePanel;
+    Image sidePanel;
 
     bool town = false;
     bool legend = false;
+
+    public void pressTownButton() {
+        if (town) {
+            townClosedButton.SetActive(true);
+            legendClosedButton.SetActive(true);
+            townOpenButton.SetActive(false);
+            legendOpenButton.SetActive(false);
+            town = false;
+            sidePanel.enabled = false;
+        }
+        else {
+            town = true;
+            legend = false;
+        }
+    }
+
+    public void pressLegendButton() {
+        if (legend) {
+            townClosedButton.SetActive(true);
+            legendClosedButton.SetActive(true);
+            legend = false;
+            sidePanel.enabled = false;
+            townOpenButton.SetActive(false);
+            legendOpenButton.SetActive(false);
+        }
+        else {
+            legend = true;
+            town = false;
+        }
+    }
 
 
 }

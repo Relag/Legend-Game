@@ -80,11 +80,13 @@ public class LegendUIManager : MonoBehaviour
         }
     }
 
-
+    //Calls when the player chooses an answer. Run through the answers and ensure the button text matches the answer.
+    //Add the answer paragraphs to the paragraph list.
+    //Unlock legendicons and add up stats.
     public void Answer() {
         GameObject thisButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
         TextMeshProUGUI text = thisButton.GetComponentInChildren<TextMeshProUGUI>();
-        Debug.Log(text.text);
+
         foreach (Answer answer in currentLegend.answerList) {
             if (Equals(text.text, answer.answer)) {
                 for (int i = 0; i < answer.paragraphs.Count; i++)
