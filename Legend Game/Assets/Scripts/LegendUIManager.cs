@@ -33,6 +33,13 @@ public class LegendUIManager : MonoBehaviour
 
     LegendTemplate currentLegend;
 
+    private int totalMilitary = 0;
+    private int totalCommerce = 0;
+    private int totalReligion = 0;
+    private int totalFood = 0;
+    private int totalKnowledge = 0;
+    private int totalMaterials = 0;
+
     private void Awake() {
         if (legendUIManager != null) {
             Destroy(gameObject);
@@ -40,21 +47,14 @@ public class LegendUIManager : MonoBehaviour
         else {
             legendUIManager = this;
         }
-
     }
     // Start is called before the first frame update
     void Start()
     {
-        StoryTime();
-        
+        StoryTime();    
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    //Sets Legend UI to true, sets up paragraphs and answers.
     public void StoryTime() {
         endPanel.SetActive(false);
         choicePanel.SetActive(true);
@@ -69,6 +69,7 @@ public class LegendUIManager : MonoBehaviour
         GenerateButtons();
     }
 
+    //Draw from the answer list to create buttons.
     public void GenerateButtons() {
         for (int i = 0; i < currentLegend.answerList.Count; i++) {
             Button loop = Instantiate(button);
@@ -76,9 +77,9 @@ public class LegendUIManager : MonoBehaviour
             TextMeshProUGUI text = loop.GetComponentInChildren<TextMeshProUGUI>();
             text.text = currentLegend.answerList[i].answer;
             loop.onClick.AddListener(Answer);
-           
         }
     }
+
 
     public void Answer() {
         GameObject thisButton = UnityEngine.EventSystems.EventSystem.current.currentSelectedGameObject;
@@ -88,17 +89,33 @@ public class LegendUIManager : MonoBehaviour
             if (Equals(text.text, answer.answer)) {
                 for (int i = 0; i < answer.paragraphs.Count; i++)
                     currentLegend.paragraphList.Add(answer.paragraphs[i]);
+                if (answer.iconUnlocked is LegendIcons) {
+                    statText.text += answer.iconUnlocked.name + " Unlocked";
+                }
+                //End the story and draw the stats gained. Add paragraphs branching from answer to the paragraph list. Reset currencies.
                 if (answer.theEnd) {
                     choicePanel.SetActive(false);
                     endPanel.SetActive(true);
-                    statText.text = answer.military + " + Military\n" + answer.commerce + " + Commerce\n" + answer.religion + " + Religion\n"; 
-                    if (answer.iconUnlocked is LegendIcons) {
-                        statText.text += answer.iconUnlocked.name + " Unlocked";
-                    }
+                    UpdateAnswerStats(answer);
+                    statText.text = totalMilitary + " + Military\n" + totalCommerce + " + Commerce\n" + totalReligion + " + Religion\n" + totalFood + " + Food/n" + totalMaterials + " + Materials/n" + totalKnowledge + " + Knowledge";
+                } else {
+                    foreach (string paragraph in answer.paragraphs)
+                        currentLegend.paragraphList.Add(paragraph);
+                    UpdateAnswerStats(answer);
+
                 }
                 NextParagraph();
             }
         }
+    }
+
+    private void UpdateAnswerStats(Answer answer) {
+        totalMilitary += answer.military;
+        totalCommerce += answer.commerce;
+        totalReligion = +answer.religion;
+        totalMaterials = answer.materials;
+        totalKnowledge += answer.knowledge;
+        totalFood += answer.food;
     }
 
     public void NextParagraph() {
