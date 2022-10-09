@@ -7,7 +7,7 @@ class DialogueManager : MonoBehaviour
     public static DialogueManager dialogueManager;
 
     [SerializeField]
-    private List<LegendTemplate> unlockedLegends = new List<LegendTemplate>();
+    public List<LegendTemplate> unlockedLegends = new List<LegendTemplate>();
     private List<LegendTemplate> lockedLegends = new List<LegendTemplate>();
 
     private void Awake() {
@@ -20,14 +20,14 @@ class DialogueManager : MonoBehaviour
     }
 
     public void Start() {
-        
+        unlockedLegends.Add(new TheKingAndHisMariners());
     }
 
     //Shuffle LegendList and return a random legend to the player.
-    public LegendTemplate getLegend() {
-        unlockedLegends.Add(new TheKingAndHisMariners());
+    public LegendTemplate getLegend() {      
         int index = Random.Range(0, unlockedLegends.Count);
-        return unlockedLegends[index];
+        LegendTemplate returnLegend = unlockedLegends[index];
+        unlockedLegends.Remove(unlockedLegends[index]);
+        return returnLegend;
     }
-    
 }
