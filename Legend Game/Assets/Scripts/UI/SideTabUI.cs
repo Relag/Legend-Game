@@ -13,6 +13,8 @@ public class SideTabUI : MonoBehaviour {
     private GameObject townClosedButton;
     [SerializeField]
     private GameObject legendClosedButton;
+    [SerializeField]
+    StatCanvasUI statCanvasUI;
 
     [SerializeField]
     TextMeshProUGUI tabText;
@@ -28,6 +30,7 @@ public class SideTabUI : MonoBehaviour {
 
     public void pressTownButton() {
         if (town) {
+            statCanvasUI.clearTownStats();
             townClosedButton.SetActive(true);
             legendClosedButton.SetActive(true);
             townOpenButton.SetActive(false);
@@ -36,11 +39,13 @@ public class SideTabUI : MonoBehaviour {
             sidePanel.enabled = false;
             tabText.enabled = false;
             infoText.enabled = false;
+            
         }
         else {
             town = true;
             legend = false;
             tabText.text = "Town Stats";
+            statCanvasUI.TownStats();
         }
     }
 
@@ -59,6 +64,7 @@ public class SideTabUI : MonoBehaviour {
             legend = true;
             town = false;
             tabText.text = "Legend";
+            statCanvasUI.clearTownStats();
         }
     }
 
