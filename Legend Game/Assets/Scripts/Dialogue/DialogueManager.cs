@@ -24,10 +24,15 @@ class DialogueManager : MonoBehaviour
     }
 
     //Shuffle LegendList and return a random legend to the player.
-    public LegendTemplate getLegend() {      
-        int index = Random.Range(0, unlockedLegends.Count);
-        LegendTemplate returnLegend = unlockedLegends[index];
-        unlockedLegends.Remove(unlockedLegends[index]);
-        return returnLegend;
+    public LegendTemplate getLegend() {
+        if (unlockedLegends.Count > 0) {
+            int index = Random.Range(0, unlockedLegends.Count);
+            LegendTemplate returnLegend = unlockedLegends[index];
+            unlockedLegends.Remove(unlockedLegends[index]);
+            return returnLegend;
+        }
+        else {
+            return new DefaultLegend();
+        }
     }
 }
