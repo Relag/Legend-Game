@@ -7,7 +7,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
-    List<LegendIcons> legendIcondList;
+    List<LegendIcons> legendIconList;
     public int turnCount;
 
     private void Awake() {
@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Blacksmith blacksmith = new Blacksmith();
-        legendIcondList.Add(blacksmith);
+        legendIconList.Add(new Blacksmith());
         turnCount = 1;
+        LegendUIManager.legendUIManager.StoryTime();
     }
 
     public void NextTurn() {

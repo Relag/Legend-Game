@@ -19,12 +19,13 @@ public class LegendUIManager : MonoBehaviour
     [SerializeField]
     private GameObject endPanel;
     [SerializeField]
-    private GameObject sidePanel;
-    [SerializeField]
     private Button button;
 
     [SerializeField]
     private Button endButton;
+
+    [SerializeField]
+    private Button nextTurnButton;
 
     [SerializeField]
     private TextMeshProUGUI statText;
@@ -53,14 +54,17 @@ public class LegendUIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StoryTime();    
+          
     }
 
     //Sets Legend UI to true, sets up paragraphs and answers.
     public void StoryTime() {
         endPanel.SetActive(false);
         choicePanel.SetActive(true);
-        sidePanel.SetActive(false);
+        foreach (Transform child in choicePanel.transform)
+            Destroy(child.gameObject);
+        nextTurnButton.gameObject.SetActive(false);
+        
 
         paragraphNumber = 0;
         currentLegend = DialogueManager.dialogueManager.getLegend();
@@ -141,7 +145,6 @@ public class LegendUIManager : MonoBehaviour
 
         endPanel.SetActive(false);
         choicePanel.SetActive(true);
-        sidePanel.SetActive(false);
 
         paragraphNumber = 0;
         currentLegend = ending;
