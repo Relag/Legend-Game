@@ -22,16 +22,17 @@ public class Blacksmith : LegendIcons
 
     public override void BeingPurchased() {
         for (int i = 0; i < TownManager.townManager.purchaseList.Count; i++)
-        if (TownManager.townManager.purchaseList[i].name == "Mine") {
-                commerce = 15;
-                military = 30;
-                foodGiven = 15;
+            if (TownManager.townManager.purchaseList[i].name == "Mine") {
+                    commerce = 15;
+                    military = 30;
+                    foodGiven = 15;
 
                 
                 
-        }
+            }
         GameObject blacksmith = GameObject.Find("Blacksmith");
         blacksmith.GetComponent<SpriteRenderer>().enabled = true;
+        DialogueManager.dialogueManager.unlockedLegends.Add(new TheYoungBlacksmith());
     }
 
 }
