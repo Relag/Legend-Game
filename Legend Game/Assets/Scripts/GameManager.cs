@@ -32,8 +32,8 @@ public class GameManager : MonoBehaviour
     public void NextTurn() {
         if (turnCount < 5) {
             turnCount++;
-            LegendUIManager.legendUIManager.StoryTime();
             TownManager.townManager.startNextTurn();
+            LegendUIManager.legendUIManager.StoryTime();   
         }
         else {
             if (TownManager.townManager.MilitaryEnding() && TownManager.townManager.CommerceEnding() && TownManager.townManager.ReligionEnding())

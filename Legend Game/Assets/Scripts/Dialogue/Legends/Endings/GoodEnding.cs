@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class GoodEnding : LegendTemplate
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    GoodEnding() {
+        title = "Everything";
+        paragraphList.Add("With God, coin, and steel on their side, the villiagers made swift work of the nothingness. Their foundation of legends is complete, and now they must write their own tales to keep their wolves at bay.");
     }
 }

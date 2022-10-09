@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class BadEnding : LegendTemplate
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    BadEnding() {
+        title = "Nothingness";
+        paragraphList.Add("Nothing was gained and all was lost. Not even a footnote remains of the villiage or its residents.");
     }
 }

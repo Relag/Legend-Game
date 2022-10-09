@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class MilitaryReligionEnding : LegendTemplate
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    MilitaryReligionEnding() {
+        title = "Fight with Fervour";
+        paragraphList.Add("With steel in their hands an faith in their hearts, the villiagers fought valiantly against the calamity. Though many were lost, it was trusted that they were now in a better place.");
     }
 }

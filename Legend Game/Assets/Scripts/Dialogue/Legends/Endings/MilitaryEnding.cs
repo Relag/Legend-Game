@@ -4,15 +4,8 @@ using UnityEngine;
 
 public class MilittaryEnding : LegendTemplate
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+    MilittaryEnding() {
+        title = "Hard Fought; Hard Lost";
+        paragraphList.Add("Though well equipped, the villiagers were quickly overwhelmed by the nothingness. The few that remain lay in hiding, waiting to strike should the oppurtunity present itself.");
     }
 }
