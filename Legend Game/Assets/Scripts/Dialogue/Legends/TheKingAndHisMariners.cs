@@ -18,21 +18,19 @@ public class TheKingAndHisMariners : LegendTemplate
             "Hidden in the trees, the King spotted a great boar. He motioned to his party and they soon had the boar surrounded, with the beast none the wiser. What followed was swift and ruthless, and after the King and his mariners had a grand feast. " +
             "They lived this simple life until help came.");
 
-        answerList.Add(new Answer("Search for Food", firstAnswer, 0, 15, 0));
+        answerList.Add(new Answer("Search for Food", firstAnswer, 0, 15, 0, 0, 0, 0, null, true));
 
         List<string> secondAnswer = new List<string>();
 
         secondAnswer.Add("The King decided to search the grounds for any nearby settlements. The group happened upon a small village, and the King’s fineries and regal bearing were all that were needed to convince the denizens that he was a man of importance. " +
             "The town helped the King and his men, and in return the King showered them with gifts. Commerce and love flourish between his Kingdom and that town to this day.");
-        answerList.Add(new Answer("Search for Civilization", secondAnswer, 15, 0, 0));
+        answerList.Add(new Answer("Search for Civilization", secondAnswer, 15, 0, 0, 0, 0, 0, null, true));
 
         List<string> thirdAnswer = new List<string>();
         thirdAnswer.Add("The King knelt down and led his men in a group prayer. Each man gave themselves willingly to their God, and when the prayer was completed the clouds parted and the sun beckoned the men to follow. " +
             "The men found a rowboat, washed up on the shore and miraculously intact. They sent their finest navigator on this boat to find their Kingdom and return with aid. The King’s faith had yielded great results, and he soon returned home.");
 
-        answerList.Add(new Answer("Search for Guidance", thirdAnswer, 0, 0, 15, 0, 0, 0, new Blacksmith(), true));
-
-        
+        answerList.Add(new Answer("Search for Guidance", thirdAnswer, 0, 0, 15, 0, 0, 0, new Blacksmith(), true)); 
     }
 
 }

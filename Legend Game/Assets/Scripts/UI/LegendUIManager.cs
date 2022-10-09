@@ -99,7 +99,7 @@ public class LegendUIManager : MonoBehaviour
                     choicePanel.SetActive(false);
                     endPanel.SetActive(true);
                     UpdateAnswerStats(answer);
-                    statText.text = totalMilitary + " + Military\n" + totalCommerce + " + Commerce\n" + totalReligion + " + Religion\n" + totalFood + " + Food/n" + totalMaterials + " + Materials/n" + totalKnowledge + " + Knowledge";
+                    statText.text = totalMilitary + " + Military\n" + totalCommerce + " + Commerce\n" + totalReligion + " + Religion\n" + totalFood + " + Food\n" + totalMaterials + " + Materials\n" + totalKnowledge + " + Knowledge";
                 } else {
                     foreach (string paragraph in answer.paragraphs)
                         currentLegend.paragraphList.Add(paragraph);
