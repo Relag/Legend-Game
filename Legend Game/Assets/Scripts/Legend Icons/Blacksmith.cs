@@ -16,5 +16,8 @@ public class Blacksmith : LegendIcons
         military = 20;
         foodGiven = 10;
 
+        knowledgeGiven = 0;
+        religion = 0;
+        materialGiven = 0;
     }
 }

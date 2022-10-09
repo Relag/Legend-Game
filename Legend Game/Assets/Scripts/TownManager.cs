@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using TMPro;
 
 
 public class TownManager : MonoBehaviour
@@ -9,14 +9,8 @@ public class TownManager : MonoBehaviour
     public static TownManager townManager;
     public List<LegendIcons> icons = new List<LegendIcons>();
 
-    private void Awake() {
-        if (townManager != null) {
-            Destroy(gameObject);
-        }
-        else {
-            townManager = this;
-        }
-    }
+    [SerializeField]
+    StatCanvasUI statCanvasUI;
 
     int totalFood;
     int totalMaterial;
@@ -28,27 +22,29 @@ public class TownManager : MonoBehaviour
     int knowledgeUsed;
     int materialUsed;
 
+    private void Awake() {
+        if (townManager != null) {
+            Destroy(gameObject);
+        }
+        else {
+            townManager = this;
+        }
+    }
     
     // Start is called before the first frame update
     void Start()
     {
-        totalFood = 0;
+        totalFood = 15;
         foodUsed = 0;
-        totalMaterial = 0;
+        totalMaterial = 15;
         materialUsed = 0;
-        totalKnowledge = 0;
+        totalKnowledge = 15;
         knowledgeUsed = 0;
         totalCommerce = 0;
         totalReligion = 0;
         totalMilitary = 0;
 
         icons.Add(new Blacksmith());
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     public void UpdateStats(LegendIcons newLegendIcon) {
@@ -68,10 +64,29 @@ public class TownManager : MonoBehaviour
         List<string> stats = new List<string>();
         stats.Add("Military\t" + totalMilitary);
         stats.Add("Commerce\t" + totalCommerce);
-        stats.Add("Religion\t" + totalReligion + "/" + totalFood);
-        stats.Add("Food\t" + foodUsed + "/" + totalFood);
+        stats.Add("Religion\t" + totalReligion);
+        stats.Add("Food\t\t" + foodUsed + "/" + totalFood);
         stats.Add("Materials\t" + materialUsed + " / " + totalMaterial);
         stats.Add("Knowledge\t" + knowledgeUsed + " / " + totalKnowledge);
         return stats;
+    }
+
+    public void purchaseIcon(LegendIcons icon) {
+        if (foodAvailable() > icon.foodRequired && materialAvailable() > icon.materialRequired && knowledgeAvailable() > icon.knowledgeRequired) {
+            foodUsed += icon.foodRequired;
+            materialUsed += icon.materialRequired;
+            knowledgeUsed += icon.knowledgeRequired;
+
+            totalFood += icon.foodGiven;
+            totalMaterial += icon.materialGiven;
+            totalKnowledge += icon.knowledgeGiven;
+
+            totalReligion += icon.religion;
+            totalMilitary += icon.military;
+            totalCommerce += icon.commerce;
+
+            icons.Remove(icon);
+            statCanvasUI.TownStats();
+        }     
     }
 }

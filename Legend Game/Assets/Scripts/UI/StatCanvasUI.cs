@@ -44,6 +44,7 @@ public class StatCanvasUI : MonoBehaviour
                 currentButton.transform.parent = image.transform;
                 TextMeshProUGUI currentText = button.GetComponentInChildren<TextMeshProUGUI>();
                 currentText.text = icon.name + "\n Food " + icon.foodRequired + " | Mat. " + icon.materialRequired + " | Kno. " + icon.knowledgeRequired;
+                currentButton.onClick.AddListener(delegate { TownManager.townManager.purchaseIcon(icon); });
             }
         }
     }
