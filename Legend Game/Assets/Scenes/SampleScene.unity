@@ -4303,8 +4303,9 @@ MonoBehaviour:
   storyText: {fileID: 252129174}
   choicePanel: {fileID: 15996928}
   endPanel: {fileID: 1902986478}
+  sidePanel: {fileID: 1070904183}
   button: {fileID: 1040903861029213520, guid: a6ce626965641b34a9704384ad871900, type: 3}
-  endButton: {fileID: 0}
+  endButton: {fileID: 1085353161}
   statText: {fileID: 511994405}
 --- !u!4 &1828109413
 Transform:

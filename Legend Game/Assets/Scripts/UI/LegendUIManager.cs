@@ -19,6 +19,8 @@ public class LegendUIManager : MonoBehaviour
     [SerializeField]
     private GameObject endPanel;
     [SerializeField]
+    private GameObject sidePanel;
+    [SerializeField]
     private Button button;
 
     [SerializeField]
@@ -58,6 +60,7 @@ public class LegendUIManager : MonoBehaviour
     public void StoryTime() {
         endPanel.SetActive(false);
         choicePanel.SetActive(true);
+        sidePanel.SetActive(false);
 
         paragraphNumber = 0;
         currentLegend = DialogueManager.dialogueManager.getLegend();

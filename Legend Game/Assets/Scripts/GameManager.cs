@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager gameManager;
     List<LegendIcons> legendIcondList;
+    public int turnCount;
 
     private void Awake() {
         if (gameManager != null) {
@@ -25,11 +26,14 @@ public class GameManager : MonoBehaviour
     {
         Blacksmith blacksmith = new Blacksmith();
         legendIcondList.Add(blacksmith);
+        turnCount = 1;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public void NextTurn() {
+        if (turnCount < 5) {
+            turnCount++;
+            LegendUIManager.legendUIManager.StoryTime();
+            TownManager.townManager.startNextTurn();
+        }
     }
 }
