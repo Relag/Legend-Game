@@ -8,6 +8,7 @@ public class TownManager : MonoBehaviour
 {
     public static TownManager townManager;
     public List<LegendIcons> icons = new List<LegendIcons>();
+    public List<LegendIcons> purchaseList = new List<LegendIcons>();
 
     [SerializeField]
     StatCanvasUI statCanvasUI;
@@ -73,6 +74,8 @@ public class TownManager : MonoBehaviour
 
     public void purchaseIcon(LegendIcons icon) {
         if (foodAvailable() > icon.foodRequired && materialAvailable() > icon.materialRequired && knowledgeAvailable() > icon.knowledgeRequired) {
+            icon.BeingPurchased();
+
             foodUsed += icon.foodRequired;
             materialUsed += icon.materialRequired;
             knowledgeUsed += icon.knowledgeRequired;
@@ -85,6 +88,7 @@ public class TownManager : MonoBehaviour
             totalMilitary += icon.military;
             totalCommerce += icon.commerce;
 
+            purchaseList.Add(icon);
             icons.Remove(icon);
             statCanvasUI.TownStats();
         }     

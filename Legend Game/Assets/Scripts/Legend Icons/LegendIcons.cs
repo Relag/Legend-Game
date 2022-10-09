@@ -8,6 +8,8 @@ public abstract class LegendIcons : MonoBehaviour
     protected Sprite iconSprite;
     public Vector2 location;
 
+    
+
     public int military { get; set; } 
     public int religion { get; set; }
     public int commerce { get; set; }
@@ -27,7 +29,11 @@ public abstract class LegendIcons : MonoBehaviour
             return true;
         else
             return false;
-}
+    }
+
+    public virtual void BeingPurchased() {
+
+    }
 }
 
 
