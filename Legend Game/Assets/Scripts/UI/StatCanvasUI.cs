@@ -12,10 +12,13 @@ public class StatCanvasUI : MonoBehaviour
     private TextMeshProUGUI statText;
 
     [SerializeField]
+    private Button button;
+
+    [SerializeField]
     private GameObject image;
 
     public void TownStats() {
-        clearTownStats();
+        clearSidebar();
         List<string> stats = new List<string>(TownManager.townManager.getStats()); 
  
         foreach (string stat in stats) {
@@ -24,14 +27,24 @@ public class StatCanvasUI : MonoBehaviour
             currentStat.transform.SetParent(image.transform);
             currentStat.transform.localScale = new Vector3(1,1,1);
             currentStat.color = Color.black;
-        }
-            
+        }   
     }
 
-    public void clearTownStats() {
+    public void clearSidebar() {
         foreach (Transform child in image.transform)
             Destroy(child.gameObject);
             
     }
 
+    public void LegendIconList() {
+        clearSidebar();
+        foreach (LegendIcons icon in TownManager.townManager.icons) {
+            if (icon.shouldBeShown()) {
+                Button currentButton = Instantiate(button);
+                currentButton.transform.parent = image.transform;
+                TextMeshProUGUI currentText = button.GetComponentInChildren<TextMeshProUGUI>();
+                currentText.text = icon.name + "\n Food " + icon.foodRequired + " | Mat. " + icon.materialRequired + " | Kno. " + icon.knowledgeRequired;
+            }
+        }
+    }
 }

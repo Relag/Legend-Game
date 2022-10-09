@@ -7,6 +7,7 @@ using UnityEngine;
 public class TownManager : MonoBehaviour
 {
     public static TownManager townManager;
+    public List<LegendIcons> icons = new List<LegendIcons>();
 
     private void Awake() {
         if (townManager != null) {
@@ -40,6 +41,8 @@ public class TownManager : MonoBehaviour
         totalCommerce = 0;
         totalReligion = 0;
         totalMilitary = 0;
+
+        icons.Add(new Blacksmith());
     }
 
     // Update is called once per frame

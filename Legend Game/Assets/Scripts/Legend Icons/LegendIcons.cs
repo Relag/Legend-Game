@@ -9,21 +9,25 @@ public abstract class LegendIcons : MonoBehaviour
     public Vector2 location;
 
     public int military { get; set; } 
-    public int religion { get; }
-    public int commerce { get; }
-    public int foodGiven { get; }
-    public int materialGiven { get; }
-    public int knowledgeGiven { get; }
-    public int foodRequired { get; }
-    public int materialRequired { get; }
-    public int knowledgeRequired { get; }
+    public int religion { get; set; }
+    public int commerce { get; set; }
+    public int foodGiven { get; set; }
+    public int materialGiven { get; set; }
+    public int knowledgeGiven { get; set; }
+    public int foodRequired { get; set; }
+    public int materialRequired { get; set; }
+    public int knowledgeRequired { get; set; }
     public string name;
 
     public bool unlocked = false;
+    public bool purchased = false;
 
-   public void unlock() {
-        unlocked = true;
-        //inform UI manager that icon is unlocked and should be shown.
-    }
-
+    public bool shouldBeShown() {
+        if (unlocked && !purchased)
+            return true;
+        else
+            return false;
 }
+}
+
+

@@ -4,8 +4,17 @@ using UnityEngine;
 
 public class Blacksmith : LegendIcons
 {
-    // Start is called before the first frame update
+    
     public Blacksmith () {
         name = "Blacksmith";
+        unlocked = true;
+        foodRequired = 0;
+        materialRequired = 10;
+        knowledgeRequired = 10;
+
+        commerce = 10;
+        military = 20;
+        foodGiven = 10;
+
     }
 }
