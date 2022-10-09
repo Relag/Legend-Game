@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CommerceEnding : LegendTemplate
 {
-    CommerceEnding() {
+    public CommerceEnding() {
         title = "A Pile of Metal";
         paragraphList.Add("Mercenaries were hired, allies were called upon, and favours were drawn in, but alas to no avail. The calamity swept through, leaving the villiagers' gold behind but nothing else.");
     }

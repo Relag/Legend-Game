@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BadEnding : LegendTemplate
 {
-    BadEnding() {
+    public BadEnding() {
         title = "Nothingness";
         paragraphList.Add("Nothing was gained and all was lost. Not even a footnote remains of the villiage or its residents.");
     }
