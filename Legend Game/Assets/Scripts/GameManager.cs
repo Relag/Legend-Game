@@ -35,5 +35,23 @@ public class GameManager : MonoBehaviour
             LegendUIManager.legendUIManager.StoryTime();
             TownManager.townManager.startNextTurn();
         }
+        else {
+            if (TownManager.townManager.MilitaryEnding() && TownManager.townManager.CommerceEnding() && TownManager.townManager.ReligionEnding())
+                LegendUIManager.legendUIManager.EndingTime(new GoodEnding());
+            else if (TownManager.townManager.MilitaryEnding() && TownManager.townManager.CommerceEnding())
+                LegendUIManager.legendUIManager.EndingTime(new MilitaryCommerceEnding());
+            else if (TownManager.townManager.CommerceEnding() && TownManager.townManager.ReligionEnding())
+                LegendUIManager.legendUIManager.EndingTime(new CommerceReligionEnding());
+            else if (TownManager.townManager.MilitaryEnding() && TownManager.townManager.ReligionEnding())
+                LegendUIManager.legendUIManager.EndingTime(new MilitaryReligionEnding());
+            else if (TownManager.townManager.MilitaryEnding())
+                LegendUIManager.legendUIManager.EndingTime(new MilittaryEnding());
+            else if (TownManager.townManager.CommerceEnding())
+                LegendUIManager.legendUIManager.EndingTime(new CommerceEnding());
+            else if (TownManager.townManager.ReligionEnding())
+                LegendUIManager.legendUIManager.EndingTime(new ReligionEnding());
+            else
+                LegendUIManager.legendUIManager.EndingTime(new BadEnding());
+        }
     }
 }

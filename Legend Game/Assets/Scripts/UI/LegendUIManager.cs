@@ -136,4 +136,16 @@ public class LegendUIManager : MonoBehaviour
             storyText.text = currentLegend.paragraphList[paragraphNumber];
         }
     }
+
+    public void EndingTime(LegendTemplate ending) {
+
+        endPanel.SetActive(false);
+        choicePanel.SetActive(true);
+        sidePanel.SetActive(false);
+
+        paragraphNumber = 0;
+        currentLegend = ending;
+        titleText.text = ending.title;
+        storyText.text = ending.paragraphList[paragraphNumber];
+    }
 }

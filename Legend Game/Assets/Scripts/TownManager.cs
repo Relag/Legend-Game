@@ -99,4 +99,25 @@ public class TownManager : MonoBehaviour
         totalMaterial += 5;
         totalKnowledge += 5;
     }
+
+    public bool MilitaryEnding() {
+        if (totalMilitary > 50)
+            return true;
+        else
+            return false;
+    }
+
+    public bool CommerceEnding() {
+        if (totalCommerce > 50)
+            return true;
+        else
+            return false;
+    }
+
+    public bool ReligionEnding() {
+        if (totalReligion > 50)
+            return true;
+        else
+            return false;
+    }
 }

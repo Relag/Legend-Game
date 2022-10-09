@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GoodEnding : MonoBehaviour
+public class GoodEnding : LegendTemplate
 {
     // Start is called before the first frame update
     void Start()
