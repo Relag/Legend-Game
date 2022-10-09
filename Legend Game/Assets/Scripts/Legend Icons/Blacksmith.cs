@@ -25,10 +25,7 @@ public class Blacksmith : LegendIcons
             if (TownManager.townManager.purchaseList[i].name == "Mine") {
                     commerce = 15;
                     military = 30;
-                    foodGiven = 15;
-
-                
-                
+                    foodGiven = 15;   
             }
         GameObject blacksmith = GameObject.Find("Blacksmith");
         blacksmith.GetComponent<SpriteRenderer>().enabled = true;
