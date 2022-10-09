@@ -93,4 +93,10 @@ public class TownManager : MonoBehaviour
             statCanvasUI.TownStats();
         }     
     }
+
+    public void startNextTurn() {
+        totalFood += 5;
+        totalMaterial += 5;
+        totalKnowledge += 5;
+    }
 }
