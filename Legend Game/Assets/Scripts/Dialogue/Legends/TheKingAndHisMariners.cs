@@ -7,12 +7,9 @@ using System.Linq;
 public class TheKingAndHisMariners : LegendTemplate
 {
     public TheKingAndHisMariners() {
-        //Debug.Log(paragraphList.Count());
-        
+
         title = "The King and His Mariners";
-        Debug.Log(title);
         paragraphList.Add("Long ago there was a King. He was a kind man stalwart and true, but he was not content to sit on his throne. Instead, he decided to be a leader of his people and set out on a naval expedition.");
-        Debug.Log(paragraphList[0]);
         
         paragraphList.Add("The seas were harsh, and soon a great storm rolled in. Despite their best efforts, the mariners could not tame these waves and the ship soon ran aground in a foreign land. The King led his men to shore, but now a decision had to be made.");
 
