@@ -78,6 +78,8 @@ public class LegendUIManager : MonoBehaviour
 
     //Draw from the answer list to create buttons.
     public void GenerateButtons() {
+        foreach (Transform child in choicePanel.transform)
+            Destroy(child.gameObject);
         for (int i = 0; i < currentLegend.answerList.Count; i++) {
             Button loop = Instantiate(button);
             loop.transform.parent = choicePanel.transform;
@@ -111,7 +113,10 @@ public class LegendUIManager : MonoBehaviour
                     foreach (string paragraph in answer.paragraphs)
                         currentLegend.paragraphList.Add(paragraph);
                     UpdateAnswerStats(answer);
-
+                    currentLegend.answerList.Clear();
+                    foreach (Answer nextAnswer in answer.nextAnswers) {
+                        currentLegend.answerList.Add(nextAnswer);
+                    }
                 }
                 NextParagraph();
             }
@@ -141,10 +146,27 @@ public class LegendUIManager : MonoBehaviour
         }
     }
 
+    public void BeginningTime() {
+        currentLegend = new Beginning();
+
+        endPanel.SetActive(false);
+        choicePanel.SetActive(true);
+
+        paragraphNumber = 0;
+        titleText.text = currentLegend.title;
+        storyText.text = currentLegend.paragraphList[paragraphNumber];
+
+        choicePanel.GetComponent<VerticalLayoutGroup>().enabled = true;
+        GenerateButtons();
+    }
+
     public void EndingTime(LegendTemplate ending) {
 
         endPanel.SetActive(false);
         choicePanel.SetActive(true);
+
+        foreach (Transform child in choicePanel.transform)
+            Destroy(child.gameObject);
 
         paragraphNumber = 0;
         currentLegend = ending;

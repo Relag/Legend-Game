@@ -35,6 +35,7 @@ public class Answer
     public int knowledge;
     public bool theEnd;
     public LegendIcons iconUnlocked;
+    public List<Answer> nextAnswers = new List<Answer>();
 
     public Answer(string answer, List<string> answerList, int commerce = 0, int military = 0, int religion = 0, int food = 0, int material = 0, int knowledge = 0, LegendIcons iconUnlocked = null, bool theEnd = false) {
         this.answer = answer;

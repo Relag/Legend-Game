@@ -32,8 +32,7 @@ public class StatCanvasUI : MonoBehaviour
 
     public void clearSidebar() {
         foreach (Transform child in image.transform)
-            Destroy(child.gameObject);
-            
+            Destroy(child.gameObject);     
     }
 
     public void LegendIconList() {

@@ -24,9 +24,9 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        legendIconList.Add(new Blacksmith());
+        //legendIconList.Add(new Beginning());
         turnCount = 1;
-        LegendUIManager.legendUIManager.StoryTime();
+        LegendUIManager.legendUIManager.BeginningTime();
     }
 
     public void NextTurn() {

@@ -51,6 +51,7 @@ public class SideTabUI : MonoBehaviour {
 
     public void pressLegendButton() {
         if (legend) {
+            statCanvasUI.clearSidebar();
             townClosedButton.SetActive(true);
             legendClosedButton.SetActive(true);
             legend = false;
@@ -59,6 +60,7 @@ public class SideTabUI : MonoBehaviour {
             legendOpenButton.SetActive(false);
             tabText.enabled = false;
             infoText.enabled = false;
+            
         }
         else {
             legend = true;
@@ -67,6 +69,4 @@ public class SideTabUI : MonoBehaviour {
             statCanvasUI.clearSidebar();
         }
     }
-
-
 }
