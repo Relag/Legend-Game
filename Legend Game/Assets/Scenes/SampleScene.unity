@@ -1490,7 +1490,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icons: []
   purchaseList: []
-  statCanvasUI: {fileID: 415646124}
+  sideTabUI: {fileID: 1940919897}
 --- !u!4 &497447579
 Transform:
   m_ObjectHideFlags: 0
