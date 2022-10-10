@@ -11,7 +11,7 @@ public class TownManager : MonoBehaviour
     public List<LegendIcons> purchaseList = new List<LegendIcons>();
 
     [SerializeField]
-    StatCanvasUI statCanvasUI;
+    SideTabUI sideTabUI;
 
     int totalFood;
     int totalMaterial;
@@ -47,6 +47,8 @@ public class TownManager : MonoBehaviour
 
         icons.Add(new Mountain());
         icons.Add(new Mine());
+        icons.Add(new Church());
+        icons.Add(new Market());
        
     }
 
@@ -92,7 +94,7 @@ public class TownManager : MonoBehaviour
 
             purchaseList.Add(icon);
             icons.Remove(icon);
-            statCanvasUI.TownStats();
+            sideTabUI.pressTownButton();
         }     
     }
 
