@@ -4,15 +4,23 @@ using UnityEngine;
 
 public class Mountain : LegendIcons
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    public Mountain() {
+        name = "Mountain";
+        unlocked = true;
+        foodRequired = 5;
+        materialRequired = 15;
+        knowledgeRequired = 10;
+
+        commerce = 0;
+        military = 10;
+        religion = 10;
+
+        knowledgeGiven = 10;
+        foodGiven = 0;
+        materialGiven = 25;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public override void BeingPurchased() {
+       
     }
 }

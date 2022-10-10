@@ -38,13 +38,14 @@ public class StatCanvasUI : MonoBehaviour
     public void LegendIconList() {
         clearSidebar();
         foreach (LegendIcons icon in TownManager.townManager.icons) {
-            if (icon.shouldBeShown()) {
-                Button currentButton = Instantiate(button);
-                currentButton.transform.parent = image.transform;
-                TextMeshProUGUI currentText = button.GetComponentInChildren<TextMeshProUGUI>();
-                currentText.text = icon.name + "\n Food " + icon.foodRequired + " | Mat. " + icon.materialRequired + " | Kno. " + icon.knowledgeRequired;
-                currentButton.onClick.AddListener(delegate { TownManager.townManager.purchaseIcon(icon); });
-            }
+        
+            Button currentButton = Instantiate(button);
+            currentButton.transform.parent = image.transform;
+            TextMeshProUGUI currentText = new TextMeshProUGUI();
+            currentText.text = icon.name + "\n Food " + icon.foodRequired + " | Mat. " + icon.materialRequired + " | Kno. " + icon.knowledgeRequired;
+            button.GetComponentInChildren<TextMeshProUGUI>().text = currentText.text;
+            currentButton.onClick.AddListener(delegate { TownManager.townManager.purchaseIcon(icon); });
+            
         }
     }
 }

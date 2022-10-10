@@ -67,6 +67,7 @@ public class SideTabUI : MonoBehaviour {
             town = false;
             tabText.text = "Legend";
             statCanvasUI.clearSidebar();
+            statCanvasUI.LegendIconList();
         }
     }
 

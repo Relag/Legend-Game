@@ -35,17 +35,19 @@ public class TownManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        totalFood = 15;
+        totalFood = 20;
         foodUsed = 0;
-        totalMaterial = 15;
+        totalMaterial = 20;
         materialUsed = 0;
-        totalKnowledge = 15;
+        totalKnowledge = 20;
         knowledgeUsed = 0;
         totalCommerce = 0;
         totalReligion = 0;
         totalMilitary = 0;
 
-        icons.Add(new Blacksmith());
+        icons.Add(new Mountain());
+        icons.Add(new Mine());
+       
     }
 
     public void UpdateStats(LegendIcons newLegendIcon) {
@@ -73,7 +75,7 @@ public class TownManager : MonoBehaviour
     }
 
     public void purchaseIcon(LegendIcons icon) {
-        if (foodAvailable() > icon.foodRequired && materialAvailable() > icon.materialRequired && knowledgeAvailable() > icon.knowledgeRequired) {
+        if (foodAvailable() >= icon.foodRequired && materialAvailable() >= icon.materialRequired && knowledgeAvailable() >= icon.knowledgeRequired) {
             icon.BeingPurchased();
 
             foodUsed += icon.foodRequired;
@@ -101,21 +103,21 @@ public class TownManager : MonoBehaviour
     }
 
     public bool MilitaryEnding() {
-        if (totalMilitary > 30)
+        if (totalMilitary > 50)
             return true;
         else
             return false;
     }
 
     public bool CommerceEnding() {
-        if (totalCommerce > 30)
+        if (totalCommerce > 50)
             return true;
         else
             return false;
     }
 
     public bool ReligionEnding() {
-        if (totalReligion > 30)
+        if (totalReligion > 50)
             return true;
         else
             return false;

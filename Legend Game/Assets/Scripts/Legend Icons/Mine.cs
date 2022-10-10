@@ -8,8 +8,8 @@ public class Mine : LegendIcons
         name = "Mine";
         unlocked = true;
         foodRequired = 20;
-        materialRequired = 15;
-        knowledgeRequired = 15;
+        materialRequired = 5;
+        knowledgeRequired = 5;
 
         commerce = 20;
         military = 20;
@@ -28,7 +28,6 @@ public class Mine : LegendIcons
                 materialGiven = 30;
                 religion = 5;
             }
-        GameObject blacksmith = GameObject.Find("Mine");
-        blacksmith.GetComponent<SpriteRenderer>().enabled = true;
+        TownManager.townManager.icons.Add(new Blacksmith());
     }
 }
