@@ -21,6 +21,7 @@ class DialogueManager : MonoBehaviour
 
     public void Start() {
         unlockedLegends.Add(new TheKingAndHisMariners());
+        unlockedLegends.Add(new HareAndTheTortoise());
     }
 
     //Shuffle LegendList and return a random legend to the player.

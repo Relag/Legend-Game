@@ -69,4 +69,17 @@ public class SideTabUI : MonoBehaviour {
             statCanvasUI.clearSidebar();
         }
     }
+
+    public void reset() {
+        statCanvasUI.clearSidebar();
+        townClosedButton.SetActive(true);
+        legendClosedButton.SetActive(true);
+        townOpenButton.SetActive(false);
+        legendOpenButton.SetActive(false);
+        town = false;
+        legend = false;
+        sidePanel.enabled = false;
+        tabText.enabled = false;
+        infoText.enabled = false;
+    }
 }

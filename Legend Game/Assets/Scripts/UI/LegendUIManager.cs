@@ -110,13 +110,14 @@ public class LegendUIManager : MonoBehaviour
                     UpdateAnswerStats(answer);
                     statText.text = totalMilitary + " + Military\n" + totalCommerce + " + Commerce\n" + totalReligion + " + Religion\n" + totalFood + " + Food\n" + totalMaterials + " + Materials\n" + totalKnowledge + " + Knowledge";
                 } else {
-                    foreach (string paragraph in answer.paragraphs)
+                    foreach (string paragraph in answer.paragraphs) {
                         currentLegend.paragraphList.Add(paragraph);
-                    UpdateAnswerStats(answer);
+                    }
                     currentLegend.answerList.Clear();
                     foreach (Answer nextAnswer in answer.nextAnswers) {
                         currentLegend.answerList.Add(nextAnswer);
                     }
+                    GenerateButtons();
                 }
                 NextParagraph();
             }
