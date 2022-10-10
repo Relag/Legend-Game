@@ -101,21 +101,21 @@ public class TownManager : MonoBehaviour
     }
 
     public bool MilitaryEnding() {
-        if (totalMilitary > 50)
+        if (totalMilitary > 30)
             return true;
         else
             return false;
     }
 
     public bool CommerceEnding() {
-        if (totalCommerce > 50)
+        if (totalCommerce > 30)
             return true;
         else
             return false;
     }
 
     public bool ReligionEnding() {
-        if (totalReligion > 50)
+        if (totalReligion > 30)
             return true;
         else
             return false;
